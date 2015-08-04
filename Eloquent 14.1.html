@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+	<input id="censoredKey" type="text"></input>
+	<script>
+	var keyboardCensor = document.getElementById("censoredKey");
+	keyboardCensor.addEventListener("keydown", function(event) {
+	if(event.keyCode == 81 || event.keyCode == 87 || event.keyCode == 88){
+		console.log("test");
+		event.preventDefault();
+	}
+	});
+
+		
+	</script>
+
+</body>
+</html>
