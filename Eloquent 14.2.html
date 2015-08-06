@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mouse Trail</title>
+	<style>
+	#MovingObject{
+		display:none;
+		height:50px;
+		width:50px;
+		background-color:blue;
+	}
+	</style>
+	<script>
+
+	addEventListener("mousemove", function(event){
+		placeDiv(event.pageX, event.pageY);
+	});
+	function placeDiv(x_pos, y_pos) {
+	  var d = document.getElementById('MovingObject');
+	  d.style.display = "inline";
+	  d.style.position = "absolute";
+	  d.style.left = x_pos+'px';
+	  d.style.top = y_pos+'px';
+	}
+	</script>
+
+</head>
+<body>
+	<div id="MovingObject"> </div>
+</body>
+</html>
