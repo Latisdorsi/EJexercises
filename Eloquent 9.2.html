@@ -5,40 +5,30 @@
 	<title>Eloquent 9.2</title>
 </head>
 <body>
-	<div id="story">
-		"Quoting a story"
-	</div>
+	<div id="story">'I'm quoting a story'</div>
 
-	<button> Transform! </button>
+	<button id="freedom"> Transform! </button>
 
 	
 	<script type="text/javascript">
 
-	var textConvert = {
-	cacheDom: function(){
-		this.text = document.getElementById('story').childNodes[0].nodeValue.trim();
-		this.button = document.getElementsByTagName('button')[0];
+	var textConvert = (function(){
+	var text = document.getElementById('story').childNodes[0];
+	var button = document.getElementById('freedom');
 
-	},
-	render: function(){
-		this.text.replace(/["]/g, "'");
-		console.log(this.text);
-	},
-	bindEvents: function(){
-		this.button.addEventListener("click", this.transformText.bind(this));
-	},
-	transformText: function(){
-		
-	}, 
-	init: function(){
-		this.cacheDom();
-		this.bindEvents();
-		this.render();
-	},
+	//Bind Events
+	button.addEventListener('click', transformText);
 
-	};
+	//Change DOM
+	function render(){
+		text.nodeValue = text.nodeValue.replace(/(^|\W)'|'(\W|$)/g, '$1"$2');
+	}
+	//Replace Text via Regex Rules
+	function transformText(){
+		render();
+	}
+	})();
 
-	textConvert.init();
 
 	</script>
 
